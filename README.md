@@ -6,6 +6,7 @@
 
 ## Team Members & Roles
 
+- Marvin E. Maramot - Project Lead/Developer
 - John Ivan R. Cruz - Diagram Designer/Integration Lead
 
 ## Project Summary
