@@ -6,7 +6,7 @@
 
 ## Team Members & Roles
 
-
+- John Ivan R. Cruz - Diagram Designer/Integration Lead
 
 ## Project Summary
 
