@@ -9,6 +9,7 @@
 - Marvin E. Maramot - Project Lead/Developer
 - John Ivan R. Cruz - Diagram Designer/Integration Lead
 - Roschel B. Bacay  - Project Documenter
+- Jhon Lloyd D. Pitalco - Presenter/Tester
 
 ## Project Summary
 
