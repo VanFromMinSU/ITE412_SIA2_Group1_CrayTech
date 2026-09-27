@@ -103,31 +103,31 @@ Need an easy way to browse and purchase crayfish products.
 
 ### 5.1 Major Modules/Subsystems
 
-*User Authentication* – Handles the authentication of Owner/Admin and customers, including login and registration information.
+_User Authentication_ – Handles the authentication of Owner/Admin and customers, including login and registration information.
 
-*IoT Monitoring and Device Management* – Handles sensor readings and device status from the ESP32 and connected IoT sensors. It provides monitoring data and device control functions for the aquafarm.
+_IoT Monitoring and Device Management_ – Handles sensor readings and device status from the ESP32 and connected IoT sensors. It provides monitoring data and device control functions for the aquafarm.
 
-*Feeding and Automation Management* – Manages feeding schedules and automation commands. It controls devices such as the feeder, feed scattering motor, water refill solenoid valve, and aerator. The DS3231 RTC module supports scheduled operations.
+_Feeding and Automation Management_ – Manages feeding schedules and automation commands. It controls devices such as the feeder, feed scattering motor, water refill solenoid valve, and aerator. The DS3231 RTC module supports scheduled operations.
 
-*Product and Order Management* – Handles product browsing, product information, customer orders, order confirmations, and order status updates.
+_Product and Order Management_ – Handles product browsing, product information, customer orders, order confirmations, and order status updates.
 
-*Notification and Reporting* – Handles system alerts, notifications, and reports for the Owner/Admin. It can send notification requests through the SMS Gateway and email notifications through the Laravel backend.
+_Notification and Reporting_ – Handles system alerts, notifications, and reports for the Owner/Admin. It can send notification requests through the SMS Gateway and email notifications through the Laravel backend.
 
 ### 5.2 External Systems/Interfaces
 
-*REST API* – Provides communication between the React frontend and Laravel backend for exchanging application data and requests.
+_REST API_ – Provides communication between the React frontend and Laravel backend for exchanging application data and requests.
 
-*MySQL* – Serves as the main application database for storing user accounts, feeding schedules, product information, order information, and other system records.
+_MySQL_ – Serves as the main application database for storing user accounts, feeding schedules, product information, order information, and other system records.
 
-*Firebase Realtime Database* – Serves as the IoT/realtime platform for handling real-time sensor and device data.
+_Firebase Realtime Database_ – Serves as the IoT/realtime platform for handling real-time sensor and device data.
 
-*ESP32 and IoT Sensors/Devices* – The ESP32 collects data from the connected sensors and controls the connected actuators. The system uses the DS18B20 temperature sensor, pH sensor, ammonia sensor, MAX471 voltage sensor, and MAX471 current sensor.
+_ESP32 and IoT Sensors/Devices_ – The ESP32 collects data from the connected sensors and controls the connected actuators. The system uses the DS18B20 temperature sensor, pH sensor, ammonia sensor, MAX471 voltage sensor, and MAX471 current sensor.
 
-*SMS Gateway* – Provides external SMS services for sending system alerts and notifications. The system sends notification requests to the SMS Gateway and receives notification delivery status.
+_SMS Gateway_ – Provides external SMS services for sending system alerts and notifications. The system sends notification requests to the SMS Gateway and receives notification delivery status.
 
-*Laravel Backend Email Notification* – Provides email notification functionality for system-related notifications.
+_Laravel Backend Email Notification_ – Provides email notification functionality for system-related notifications.
 
-*Postman* – Used to test and verify REST API endpoints and backend functionality during development.
+_Postman_ – Used to test and verify REST API endpoints and backend functionality during development.
 
 ### 5.3 Data Flow Summary
 
@@ -140,3 +140,19 @@ Feeding schedules are handled by the Feeding and Automation Management module. T
 For e-commerce functions, customers browse products and submit orders through the Product and Order Management module. Product and order information is stored in MySQL and is used to provide product information, order confirmations, and order status updates.
 
 Sensor data, feeding status, and other system events are processed by the Notification and Reporting module when alerts or reports are required. Notifications can be sent through the SMS Gateway and Laravel backend email notification system, while reports and system information are provided to the Owner/Admin.
+
+## 6. Integration Pattern Applied
+
+### Integration Pattern
+
+**Hub-Spoke**
+
+### Rationale
+
+CRAYTECH uses the Hub-Spoke integration pattern because the Laravel backend and REST API serve as the central hub that coordinates communication between the system modules. The User Authentication, IoT Monitoring and Device Management, Feeding and Automation Management, Product and Order Management, and Notification and Reporting modules communicate through the central backend. This centralized approach allows the system to manage application requests and data exchanges without requiring every module to communicate directly with the other modules.
+
+### Diagram Reference
+
+The high-level architecture diagram for the Hub-Spoke integration pattern is:
+
+`docs/HighLevelArch.png`
