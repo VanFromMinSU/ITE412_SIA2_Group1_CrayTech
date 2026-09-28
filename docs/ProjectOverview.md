@@ -156,3 +156,13 @@ CRAYTECH uses the Hub-Spoke integration pattern because the Laravel backend and 
 The high-level architecture diagram for the Hub-Spoke integration pattern is:
 
 `docs/HighLevelArch.png`
+
+## 7. Messaging Workflow
+
+CRAYTECH uses a producer-consumer messaging workflow to support communication between the Product and Order Management module and the Notification and Reporting module.
+
+The Order Management module acts as the producer. Whenever a customer places an order, an order message containing customer and order information is added to a message queue.
+
+The Notification and Reporting module acts as the consumer. It retrieves queued order messages asynchronously and processes notifications such as order confirmations and status updates.
+
+This messaging approach reduces direct dependencies between modules and improves integration flexibility by allowing notifications to be processed independently from order creation.
